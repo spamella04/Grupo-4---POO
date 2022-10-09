@@ -296,6 +296,7 @@ case "abril": case "junio": case "septiembre": case "noviembre":
       {
           case 0:
           JOptionPane.showMessageDialog(this,"El numero es par","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+          break;
           case 1:
           JOptionPane.showMessageDialog(this,"El numero es impar","Respuesta",JOptionPane.INFORMATION_MESSAGE);
       }
@@ -321,13 +322,29 @@ case "abril": case "junio": case "septiembre": case "noviembre":
   default:
    break;
   }*/
-  if(rbRaiz.isSelected()){
-      JOptionPane.showMessageDialog(null,"Calcular Raiz Seleccionado","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+if(rbRaiz.isSelected()){
+      String raiz=JOptionPane.showInputDialog("Ingrese numero a calcular");
+      JOptionPane.showMessageDialog(null,"La raiz del numero es "+Math.sqrt(Integer.valueOf(raiz)));
   }else if(rbResiduo.isSelected()){
-      JOptionPane.showMessageDialog(null,"Calcular division entera","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+      String n1=JOptionPane.showInputDialog("Ingrese n1");
+      String n2=JOptionPane.showInputDialog("Ingrese n2");
+      JOptionPane.showMessageDialog(null, "El residuo de la division es "+Integer.valueOf(n1)/Integer.valueOf(n2));
   }else if(rbMenor.isSelected())
   {
-      JOptionPane.showMessageDialog(null,"Calcular numero menor de n numero","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+      int menor=0;
+      String Nnum=JOptionPane.showInputDialog("Cuantos numero va a ingresar?");
+      for(int i=0;i<Integer.valueOf(Nnum);i++)
+      { 
+          String tmp=JOptionPane.showInputDialog("Ingrese un numero");
+          if(i==0){
+              menor=Integer.valueOf(tmp);
+          }else if (Integer.valueOf(tmp)<menor)
+          {
+              menor=Integer.valueOf(tmp);
+          }
+          
+      }
+      JOptionPane.showMessageDialog(null,"El numero menor es"+menor);
   }
   
     }//GEN-LAST:event_bCalcular4ActionPerformed
