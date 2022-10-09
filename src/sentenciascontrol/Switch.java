@@ -5,6 +5,8 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Armando J. López L.
@@ -27,6 +29,7 @@ public class Switch extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Grupo1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         taEjer1 = new javax.swing.JTextArea();
         tfMes1 = new javax.swing.JTextField();
@@ -39,9 +42,9 @@ public class Switch extends javax.swing.JInternalFrame {
         bMostrar3 = new javax.swing.JButton();
         lEjer4 = new javax.swing.JLabel();
         pEstadoCivil = new javax.swing.JPanel();
-        rbSoltero = new javax.swing.JRadioButton();
-        rbCasado = new javax.swing.JRadioButton();
-        rbOtro = new javax.swing.JRadioButton();
+        rbRaiz = new javax.swing.JRadioButton();
+        rbResiduo = new javax.swing.JRadioButton();
+        rbMenor = new javax.swing.JRadioButton();
         bCalcular4 = new javax.swing.JButton();
         lEjer5 = new javax.swing.JLabel();
         tfNum5 = new javax.swing.JTextField();
@@ -69,26 +72,49 @@ public class Switch extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(taEjer1);
 
         bMostrar1.setText("Mostar");
+        bMostrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar1ActionPerformed(evt);
+            }
+        });
 
         lEjer2.setText("2. Según el número del mes, determine la época del año");
 
         bMostrar2.setText("Mostar");
+        bMostrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar2ActionPerformed(evt);
+            }
+        });
 
         lEjer3.setText("3. Según el número del mes, determine el número de días");
 
         bMostrar3.setText("Mostar");
+        bMostrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar3ActionPerformed(evt);
+            }
+        });
 
         lEjer4.setText("4. Realice la tarea que indica la selección");
 
         pEstadoCivil.setBorder(javax.swing.BorderFactory.createTitledBorder("Menú"));
 
-        rbSoltero.setText("Calcular la raíz de un número");
+        Grupo1.add(rbRaiz);
+        rbRaiz.setText("Calcular la raíz de un número");
 
-        rbCasado.setText("Calcular el residuo de una división entera");
+        Grupo1.add(rbResiduo);
+        rbResiduo.setText("Calcular el residuo de una división entera");
 
-        rbOtro.setText("Mostrar el menor de N números");
+        Grupo1.add(rbMenor);
+        rbMenor.setText("Mostrar el menor de N números");
 
         bCalcular4.setText("Calcular");
+        bCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pEstadoCivilLayout = new javax.swing.GroupLayout(pEstadoCivil);
         pEstadoCivil.setLayout(pEstadoCivilLayout);
@@ -99,9 +125,9 @@ public class Switch extends javax.swing.JInternalFrame {
                     .addGroup(pEstadoCivilLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(pEstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbCasado)
-                            .addComponent(rbOtro)
-                            .addComponent(rbSoltero)))
+                            .addComponent(rbResiduo)
+                            .addComponent(rbMenor)
+                            .addComponent(rbRaiz)))
                     .addGroup(pEstadoCivilLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(bCalcular4)))
@@ -110,11 +136,11 @@ public class Switch extends javax.swing.JInternalFrame {
         pEstadoCivilLayout.setVerticalGroup(
             pEstadoCivilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pEstadoCivilLayout.createSequentialGroup()
-                .addComponent(rbSoltero)
+                .addComponent(rbRaiz)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rbCasado)
+                .addComponent(rbResiduo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbOtro)
+                .addComponent(rbMenor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bCalcular4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -123,6 +149,11 @@ public class Switch extends javax.swing.JInternalFrame {
         lEjer5.setText("5. Determinar si el número entero es par o impar");
 
         bDeterminar5.setText("Determinar");
+        bDeterminar5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDeterminar5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,8 +225,116 @@ public class Switch extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
+        try{
+        String num=(this.tfMes1.getText());
+        switch (num.toLowerCase()) {
+  case "enero": case "marzo": case "mayo": case"julio": case "agosto": case "octubre": case"diciembre": 
+    JOptionPane.showMessageDialog(this,"El mes tiene 31 dias","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+case "abril": case "junio": case "septiembre": case "noviembre":
+   JOptionPane.showMessageDialog(this,"El mes tiene 30dias","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+  case "febrero":			
+    JOptionPane.showMessageDialog(this,"El mes tiene 28 dias(o 29 si es bisiesto)","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;	
+}
+}catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_bMostrar1ActionPerformed
+
+    private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
+        try{
+        int num=Integer.parseInt(this.tfMes2.getText());
+        switch (num) {
+  case 1: case 2: case 3: 
+    JOptionPane.showMessageDialog(this,"Invierno","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+  case 4: case 5: case 6: 
+   JOptionPane.showMessageDialog(this,"Primavera","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+  case 7: case 8: case 9:			
+    JOptionPane.showMessageDialog(this,"Verano","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+    case 10: case 11: case 12:			
+    JOptionPane.showMessageDialog(this,"Otonio","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+}
+}catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }   
+    }//GEN-LAST:event_bMostrar2ActionPerformed
+
+    private void bMostrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar3ActionPerformed
+       try{
+        int num=Integer.parseInt(this.tfMes3.getText());
+        switch (num) {
+  case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+    JOptionPane.showMessageDialog(this,"El mes tiene 31 dias","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+  case 4: case 6: case 9: case 11:
+   JOptionPane.showMessageDialog(this,"El mes tiene 30dias","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;
+  case 2:			
+    JOptionPane.showMessageDialog(this,"El mes tiene 28 dias(o 29 si es bisiesto)","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+    break;			
+}
+}catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_bMostrar3ActionPerformed
+
+    private void bDeterminar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeterminar5ActionPerformed
+        int resultado;
+      int num=Integer.parseInt(this.tfNum5.getText());
+      resultado=num%2;
+      switch(resultado)
+      {
+          case 0:
+          JOptionPane.showMessageDialog(this,"El numero es par","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+          case 1:
+          JOptionPane.showMessageDialog(this,"El numero es impar","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+      }
+    }//GEN-LAST:event_bDeterminar5ActionPerformed
+
+    private void bCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular4ActionPerformed
+        // Se recorren los controles del groupbox y se obtiene el de tipo radiobutton que esta checkeado
+  /*RadioButton selected = Grupo1.Controls.OfType<RadioButton>().FirstOrDefault((radio) => radio.Checked == true);
+
+  // Se establece el switch a partir del nombre del radiobutton
+  switch (selected.Name)
+  {
+  case "rbRaiz":
+   JOptionPane.showMessageDialog(null, "Calcular Raiz Seleccionado");
+   break;
+
+  case "rbResiduo":
+   JOptionPane.showMessageDialog(null, "Calcular division entera Seleccionado");
+   break;
+  case "rbMenor":
+   JOptionPane.showMessageDialog(null, "Calcular numero menor de n numeros Seleccionado");
+   break;
+  default:
+   break;
+  }*/
+  if(rbRaiz.isSelected()){
+      JOptionPane.showMessageDialog(null,"Calcular Raiz Seleccionado","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+  }else if(rbResiduo.isSelected()){
+      JOptionPane.showMessageDialog(null,"Calcular division entera","Respuesta",JOptionPane.INFORMATION_MESSAGE);
+  }else if(rbMenor.isSelected())
+  {
+      JOptionPane.showMessageDialog(null,"Calcular numero menor de n numero","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+  }
+  
+    }//GEN-LAST:event_bCalcular4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup Grupo1;
     private javax.swing.JButton bCalcular4;
     private javax.swing.JButton bDeterminar5;
     private javax.swing.JButton bMostrar1;
@@ -207,9 +346,9 @@ public class Switch extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lEjer4;
     private javax.swing.JLabel lEjer5;
     private javax.swing.JPanel pEstadoCivil;
-    private javax.swing.JRadioButton rbCasado;
-    private javax.swing.JRadioButton rbOtro;
-    private javax.swing.JRadioButton rbSoltero;
+    private javax.swing.JRadioButton rbMenor;
+    private javax.swing.JRadioButton rbRaiz;
+    private javax.swing.JRadioButton rbResiduo;
     private javax.swing.JTextArea taEjer1;
     private javax.swing.JTextField tfMes1;
     private javax.swing.JTextField tfMes2;
