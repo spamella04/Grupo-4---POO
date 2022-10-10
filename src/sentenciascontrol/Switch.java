@@ -6,13 +6,13 @@
 package sentenciascontrol;
 
 import javax.swing.JOptionPane;
-
+import modelos.MSwitch;
 /**
  *
  * @author Armando J. López L.
  */
 public class Switch extends javax.swing.JInternalFrame {
-
+MSwitch Switch=new MSwitch();
     /**
      * Creates new form Switch
      */
@@ -228,7 +228,8 @@ public class Switch extends javax.swing.JInternalFrame {
     private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
         try{
         String num=(this.tfMes1.getText());
-        switch (num.toLowerCase()) {
+        String Mes=Switch.NombreMes(num);
+        switch (Mes.toLowerCase()) {
   case "enero": case "marzo": case "mayo": case"julio": case "agosto": case "octubre": case"diciembre": 
     JOptionPane.showMessageDialog(this,"El mes tiene 31 dias","Respuesta",JOptionPane.INFORMATION_MESSAGE);
     break;
@@ -248,7 +249,8 @@ case "abril": case "junio": case "septiembre": case "noviembre":
     private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
         try{
         int num=Integer.parseInt(this.tfMes2.getText());
-        switch (num) {
+        int epoca=Switch.Epoca(num);
+        switch (epoca) {
   case 1: case 2: case 3: 
     JOptionPane.showMessageDialog(this,"Invierno","Respuesta",JOptionPane.INFORMATION_MESSAGE);
     break;
@@ -271,7 +273,8 @@ case "abril": case "junio": case "septiembre": case "noviembre":
     private void bMostrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar3ActionPerformed
        try{
         int num=Integer.parseInt(this.tfMes3.getText());
-        switch (num) {
+        int NrMes=Switch.NrMes(num);
+        switch (NrMes) {
   case 1: case 3: case 5: case 7: case 8: case 10: case 12:
     JOptionPane.showMessageDialog(this,"El mes tiene 31 dias","Respuesta",JOptionPane.INFORMATION_MESSAGE);
     break;
@@ -289,9 +292,9 @@ case "abril": case "junio": case "septiembre": case "noviembre":
     }//GEN-LAST:event_bMostrar3ActionPerformed
 
     private void bDeterminar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeterminar5ActionPerformed
-        int resultado;
+
       int num=Integer.parseInt(this.tfNum5.getText());
-      resultado=num%2;
+      int resultado=Switch.ParImpar(num);
       switch(resultado)
       {
           case 0:
@@ -322,17 +325,21 @@ case "abril": case "junio": case "septiembre": case "noviembre":
   default:
    break;
   }*/
+
 if(rbRaiz.isSelected()){
+
       String raiz=JOptionPane.showInputDialog("Ingrese numero a calcular");
-      JOptionPane.showMessageDialog(null,"La raiz del numero es "+Math.sqrt(Integer.valueOf(raiz)));
+      double Raiz=Switch.Seleccion(raiz);
+      JOptionPane.showMessageDialog(null,"La raiz del numero es "+Raiz);
   }else if(rbResiduo.isSelected()){
       String n1=JOptionPane.showInputDialog("Ingrese n1");
       String n2=JOptionPane.showInputDialog("Ingrese n2");
-      JOptionPane.showMessageDialog(null, "El residuo de la division es "+Integer.valueOf(n1)/Integer.valueOf(n2));
+      int divi=Switch.Division(Integer.valueOf(n1),Integer.valueOf(n2));
+      JOptionPane.showMessageDialog(null, "El residuo de la division es "+divi);
   }else if(rbMenor.isSelected())
   {
-      int menor=0;
       String Nnum=JOptionPane.showInputDialog("Cuantos numero va a ingresar?");
+      int menor=Switch.menor(Integer.valueOf(Nnum));
       for(int i=0;i<Integer.valueOf(Nnum);i++)
       { 
           String tmp=JOptionPane.showInputDialog("Ingrese un numero");

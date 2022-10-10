@@ -6,13 +6,13 @@
 package sentenciascontrol;
 
 import javax.swing.JOptionPane;
-
+import modelos.MForEach;
 /**
  *
  * @author Armando J. López L.
  */
 public class ForEach extends javax.swing.JInternalFrame {
-
+MForEach Foreach=new MForEach();
     /**
      * Creates new form ForEach
      */
@@ -124,20 +124,21 @@ public class ForEach extends javax.swing.JInternalFrame {
 
     private void bCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular1ActionPerformed
         // TODO add your handling code here:
-         String nombre[] = {"Juan","Maria","Miguel","Susana"};
-        int ArrLength = 0;
+        String nombre[] = {"Juan","Maria","Miguel","Susana"};
+        int tamanio = 0;
         for(String Elements : nombre)
-            ArrLength++;
+            tamanio++;
         for(String Elements : nombre){
             
         }
-        JOptionPane.showMessageDialog(this,"El arreglo tiene "+ArrLength+" Elementos","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this,"El arreglo tiene "+tamanio+" Elementos","Respuesta", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bCalcular1ActionPerformed
 
     private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
         // TODO add your handling code here:
         int[] numeros = new int[] { 5,8,3,7,9,0,3,2,1,4,6 };
       int menor = numeros[0];
+      int canum=Foreach.cadenum(menor);
       for (int x = 1; x < numeros.length; x++) {
 	if (numeros[x] < menor) {
 	menor = numeros[x];
