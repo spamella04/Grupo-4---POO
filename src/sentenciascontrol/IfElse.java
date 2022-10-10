@@ -5,6 +5,11 @@
  */
 package sentenciascontrol;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.JOptionPane;
+import modelos.MIfElse;
+
 
 /**
  *
@@ -12,7 +17,7 @@ package sentenciascontrol;
  */
 public class IfElse extends javax.swing.JInternalFrame {
 
-   
+   MIfElse ifelse = new MIfElse();
     /**
      * Creates new form IfElse
      */
@@ -90,6 +95,11 @@ public class IfElse extends javax.swing.JInternalFrame {
         chbIsland.setText("Corn Island");
 
         chbSanJuan.setText("San Juan del Sur");
+        chbSanJuan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbSanJuanActionPerformed(evt);
+            }
+        });
 
         bMostrar2.setText("Mostrar");
         bMostrar2.addActionListener(new java.awt.event.ActionListener() {
@@ -204,6 +214,11 @@ public class IfElse extends javax.swing.JInternalFrame {
         });
 
         bMostrar3.setText("Mostrar");
+        bMostrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bMostrar3ActionPerformed(evt);
+            }
+        });
 
         lEjer6.setText("6. Valide si la calificación es aprobada o reprobada");
 
@@ -401,6 +416,33 @@ public class IfElse extends javax.swing.JInternalFrame {
 
     private void bMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar1ActionPerformed
         // TODO add your handling code here:
+        int f = 0;
+        
+        if( rbSoltero.isSelected()){
+            f = 0+1;
+        }
+        else if( rbCasado.isSelected()){
+            f = 0+2;
+        }
+        else if( rbOtro.isSelected()){
+            f = 0+3;
+        }
+        else{
+            f = 0;
+        }
+        
+        if (f==1){
+            JOptionPane.showMessageDialog(this, "Usted escogio la opcion Soltero/a" , "Validar", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(f==2){
+            JOptionPane.showMessageDialog(this, "Usted escogio la opcion Casado/a" , "Validar", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(f==3){
+            JOptionPane.showMessageDialog(this, "Usted escogio la opcion Otros" , "Validar", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Escoja una opcion", "Validar", JOptionPane.INFORMATION_MESSAGE);
+        }
         
            
          
@@ -417,32 +459,118 @@ public class IfElse extends javax.swing.JInternalFrame {
     private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
         // TODO add your handling code here:
         
+        int f = 0;
+        
+        if( chbOmetepe.isSelected() || chbLaguna.isSelected() || chbIsland.isSelected() || chbSanJuan.isSelected()){
+            
+            f = 0+1;
+        }
+        /**else if( chbLaguna.isSelected()){
+            
+        }**/
+        else{
+            f = 0;
+        }
+        
+        int m = f;
+        
+        boolean resp = ifelse.igua(m);
+        
+        if (resp){
+            JOptionPane.showMessageDialog(this, "Se ha guardado sus opciones", "Mostrar", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "checkee alguna de las opciones", "Mostrar", JOptionPane.INFORMATION_MESSAGE);
+        }
+            
     }//GEN-LAST:event_bMostrar2ActionPerformed
 
     private void bValidar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar4ActionPerformed
         // TODO add your handling code here:
-        
+        try{
+            int num1 = Integer.parseInt(tfNum1.getText());
+            if(num1>=21){
+                JOptionPane.showMessageDialog(this, "Usted clasifica mayor a 20 años", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, "Usted no clasifica mayor a 20 años", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bValidar4ActionPerformed
 
     private void bValidar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar5ActionPerformed
         // TODO add your handling code here:
-        
+        try{
+            int num1 = Integer.parseInt(tfNum2.getText());
+            if(num1>=0 && num1<=100){
+                JOptionPane.showMessageDialog(this, "Usted clasifica", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }/**else if(num1<=100)
+                JOptionPane.showMessageDialog(this, "Usted clasifica", "Validar", JOptionPane.INFORMATION_MESSAGE);**/
+            else{
+                JOptionPane.showMessageDialog(this, "Usted no clasifica", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bValidar5ActionPerformed
 
     private void bValidar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar6ActionPerformed
         // TODO add your handling code here:
-        
-       
+        try{
+            int num1 = Integer.parseInt(tfNum3.getText());
+            if(num1>=60 && num1<=100){
+                JOptionPane.showMessageDialog(this, "Esta Aprobado", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else if(num1>=0 && num1<=59)
+                JOptionPane.showMessageDialog(this, "Esta Reprobado", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            else{
+                JOptionPane.showMessageDialog(this, "Nota incorrecta, digite una calificacion entre 0 - 100", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bValidar6ActionPerformed
 
     private void bValidar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar7ActionPerformed
         // TODO add your handling code here:
-         
+         try{
+            int num1 = Integer.parseInt(tfNum4.getText());
+            if(num1%4 == 0){
+                JOptionPane.showMessageDialog(this, "Es bisiesto", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }/**else if(num1<=100)
+                JOptionPane.showMessageDialog(this, "Usted clasifica", "Validar", JOptionPane.INFORMATION_MESSAGE);**/
+            else{
+                JOptionPane.showMessageDialog(this, "No es bisiesto", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bValidar7ActionPerformed
 
     private void bCalcular8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular8ActionPerformed
         // TODO add your handling code here:
-       
+       try{
+            int num1 = Integer.parseInt(tfNum5.getText());
+            int num2 = Integer.parseInt(tfNum6.getText());
+            int num3 = Integer.parseInt(tfNum7.getText());
+            int num4 = Integer.parseInt(tfNum8.getText());
+            
+            if(num1>num2 && num1>num3 && num1>num4){
+                JOptionPane.showMessageDialog(this, num1 + " Es el mayor", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else if(num2>num1 && num2>num3 && num2>num4){
+                JOptionPane.showMessageDialog(this, num2 + " Es el mayor", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else if(num3>num1 && num3>num2 && num3>num4){
+                JOptionPane.showMessageDialog(this, num3 + " Es el mayor", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, num4 + " Es el mayor", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         
     }//GEN-LAST:event_bCalcular8ActionPerformed
 
@@ -452,14 +580,72 @@ public class IfElse extends javax.swing.JInternalFrame {
 
     private void bCalcular9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular9ActionPerformed
         // TODO add your handling code here:
-       
-        
+        try{
+            int num1 = Integer.parseInt(tfNum9.getText());
+            
+            if(num1 == 4 && num1==6 && num1==9 && num1==11){
+                JOptionPane.showMessageDialog(this, "Hay 30 dias", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else if(num1 == 1 && num1==3 && num1==5 && num1==7 && num1==8 && num1==10 && num1==12){
+                JOptionPane.showMessageDialog(this, "Hay 31 dias", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else if(num1==2){
+                JOptionPane.showMessageDialog(this, "Hay 28 dias", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(this, "Los años son 1, 2, 3 , 4, 5, 6, 7, 8, 9, 10, 11, 12", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bCalcular9ActionPerformed
 
     private void bMostrar10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar10ActionPerformed
         // TODO add your handling code here:
-       
+       try{
+            int num1 = Integer.parseInt(tfNum10.getText());
+            if(num1>=86 && num1<=100){
+                JOptionPane.showMessageDialog(this, "Calificacion: E", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }else if(num1>=76 && num1<=85)
+                JOptionPane.showMessageDialog(this, "Calificacion: MB", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            else if(num1>=60 && num1<=75)
+                JOptionPane.showMessageDialog(this, "Calificacion: B", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            else if(num1>=0 && num1<=59)
+                JOptionPane.showMessageDialog(this, "Calificacion: D", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            else{
+                JOptionPane.showMessageDialog(this, "Nota incorrecta, digite una calificacion entre 0 - 100", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch(Exception ex){
+            
+            JOptionPane.showMessageDialog(this, "Digite la cantidad", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bMostrar10ActionPerformed
+
+    private void bMostrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar3ActionPerformed
+        // TODO add your handling code here:
+        int f = 0;
+        
+        if( tbOpcion.isSelected())
+            {
+                f = 0+1;
+            }
+            else
+            {
+                f = 0;
+            }
+        
+        int m = f;
+        
+        boolean resp = ifelse.igua(m);
+        
+        if (resp){
+            JOptionPane.showMessageDialog(this, "El boton esta presionado", "Opcion A", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(this, "El boton no esta presionado", "Opcion A", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_bMostrar3ActionPerformed
+
+    private void chbSanJuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbSanJuanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chbSanJuanActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
