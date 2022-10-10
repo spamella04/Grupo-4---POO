@@ -5,6 +5,8 @@
  */
 package sentenciascontrol;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Armando J. López L.
@@ -55,6 +57,11 @@ public class ForEach extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(taEjer1);
 
         bCalcular1.setText("Calcular");
+        bCalcular1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular1ActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setBackground(new java.awt.Color(204, 204, 204));
         jScrollPane2.setBorder(null);
@@ -75,6 +82,11 @@ public class ForEach extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(taEjer2);
 
         bCalcular2.setText("Calcular");
+        bCalcular2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bCalcular2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,6 +121,30 @@ public class ForEach extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular1ActionPerformed
+        // TODO add your handling code here:
+         String nombre[] = {"Juan","Maria","Miguel","Susana"};
+        int ArrLength = 0;
+        for(String Elements : nombre)
+            ArrLength++;
+        for(String Elements : nombre){
+            
+        }
+        JOptionPane.showMessageDialog(this,"El arreglo tiene "+ArrLength+" Elementos","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_bCalcular1ActionPerformed
+
+    private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
+        // TODO add your handling code here:
+        int[] numeros = new int[] { 5,8,3,7,9,0,3,2,1,4,6 };
+      int menor = numeros[0];
+      for (int x = 1; x < numeros.length; x++) {
+	if (numeros[x] < menor) {
+	menor = numeros[x];
+    }
+    }                                          
+JOptionPane.showMessageDialog(this,"El numero menor del arreglo es "+menor,"Respuesta", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_bCalcular2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
