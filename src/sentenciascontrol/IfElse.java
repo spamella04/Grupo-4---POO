@@ -583,9 +583,9 @@ public class IfElse extends javax.swing.JInternalFrame {
         try{
             int num1 = Integer.parseInt(tfNum9.getText());
             
-            if(num1 == 4 && num1==6 && num1==9 && num1==11){
+            if(num1 == 4 || num1==6 || num1==9 || num1==11){
                 JOptionPane.showMessageDialog(this, "Hay 30 dias", "Validar", JOptionPane.INFORMATION_MESSAGE);
-            }else if(num1 == 1 && num1==3 && num1==5 && num1==7 && num1==8 && num1==10 && num1==12){
+            }else if(num1 == 1|| num1==3 || num1==5 || num1==7 || num1==8 || num1==10 || num1==12){
                 JOptionPane.showMessageDialog(this, "Hay 31 dias", "Validar", JOptionPane.INFORMATION_MESSAGE);
             }else if(num1==2){
                 JOptionPane.showMessageDialog(this, "Hay 28 dias", "Validar", JOptionPane.INFORMATION_MESSAGE);
