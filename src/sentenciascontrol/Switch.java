@@ -240,6 +240,8 @@ case "abril": case "junio": case "septiembre": case "noviembre":
     JOptionPane.showMessageDialog(this,"El mes tiene 28 dias(o 29 si es bisiesto)","Respuesta",JOptionPane.INFORMATION_MESSAGE);
     break;	
 }
+        // holaaa
+        
 }catch(Exception ex)
         {
             JOptionPane.showMessageDialog(this, ex.getMessage());

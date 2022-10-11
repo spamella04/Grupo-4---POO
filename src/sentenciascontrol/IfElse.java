@@ -420,6 +420,7 @@ public class IfElse extends javax.swing.JInternalFrame {
         
         if( rbSoltero.isSelected()){
             f = 0+1;
+            
         }
         else if( rbCasado.isSelected()){
             f = 0+2;
