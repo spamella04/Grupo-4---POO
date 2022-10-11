@@ -459,28 +459,19 @@ public class IfElse extends javax.swing.JInternalFrame {
     private void bMostrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMostrar2ActionPerformed
         // TODO add your handling code here:
         
-        int f = 0;
+         String opcionesSeleccionadas = " ";
         
-        if( chbOmetepe.isSelected() || chbLaguna.isSelected() || chbIsland.isSelected() || chbSanJuan.isSelected()){
-            
-            f = 0+1;
+        if(chbOmetepe.isSelected()){
+            opcionesSeleccionadas = opcionesSeleccionadas + "- Ometepe Selecionado";
         }
-        /**else if( chbLaguna.isSelected()){
-            
-        }**/
-        else{
-            f = 0;
-        }
-        
-        int m = f;
-        
-        boolean resp = ifelse.igua(m);
-        
-        if (resp){
-            JOptionPane.showMessageDialog(this, "Se ha guardado sus opciones", "Mostrar", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(this, "checkee alguna de las opciones", "Mostrar", JOptionPane.INFORMATION_MESSAGE);
-        }
+        if(chbLaguna.isSelected()){
+             opcionesSeleccionadas = opcionesSeleccionadas + " - Laguna de Apoyo Seleccionado";
+        }if(chbIsland.isSelected()){
+              opcionesSeleccionadas = opcionesSeleccionadas + " - Corn Island Seleccionado";
+        }if(chbSanJuan.isSelected()){
+               opcionesSeleccionadas = opcionesSeleccionadas + " - San Juan del Sur Seleccionado";
+            }
+            JOptionPane.showMessageDialog(this,opcionesSeleccionadas, "Respuesta", JOptionPane.INFORMATION_MESSAGE);
             
     }//GEN-LAST:event_bMostrar2ActionPerformed
 
@@ -488,10 +479,11 @@ public class IfElse extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         try{
             int num1 = Integer.parseInt(tfNum1.getText());
-            if(num1>=21){
-                JOptionPane.showMessageDialog(this, "Usted clasifica mayor a 20 años", "Validar", JOptionPane.INFORMATION_MESSAGE);
+            boolean respuesta = ifelse.mayorEdad(num1);
+            if(respuesta){
+                JOptionPane.showMessageDialog(this, "Usted clasifica mayor a 21 años", "Validar", JOptionPane.INFORMATION_MESSAGE);
             }else{
-                JOptionPane.showMessageDialog(this, "Usted no clasifica mayor a 20 años", "Validar", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Usted no clasifica mayor a 21 años", "Validar", JOptionPane.INFORMATION_MESSAGE);
             }
         }catch(Exception ex){
             
@@ -502,8 +494,9 @@ public class IfElse extends javax.swing.JInternalFrame {
     private void bValidar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValidar5ActionPerformed
         // TODO add your handling code here:
         try{
-            int num1 = Integer.parseInt(tfNum2.getText());
-            if(num1>=0 && num1<=100){
+            int nota = Integer.parseInt(tfNum2.getText());
+            boolean respuesta = ifelse.validarNotar(nota);
+            if(respuesta){
                 JOptionPane.showMessageDialog(this, "Usted clasifica", "Validar", JOptionPane.INFORMATION_MESSAGE);
             }/**else if(num1<=100)
                 JOptionPane.showMessageDialog(this, "Usted clasifica", "Validar", JOptionPane.INFORMATION_MESSAGE);**/

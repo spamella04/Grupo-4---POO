@@ -126,25 +126,26 @@ MForEach Foreach=new MForEach();
         // TODO add your handling code here:
         String nombre[] = {"Juan","Maria","Miguel","Susana"};
         int tamanio = 0;
+        int i = 1;
+        /*
         for(String Elements : nombre)
             tamanio++;
+        */
+        
         for(String Elements : nombre){
-            
+          tamanio = Foreach.longi(Elements);
+         JOptionPane.showMessageDialog(this,"Tamanio elemento #"+i+": "+tamanio+" ","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+         i++;
         }
-        JOptionPane.showMessageDialog(this,"El arreglo tiene "+tamanio+" Elementos","Respuesta", JOptionPane.INFORMATION_MESSAGE);
+        
     }//GEN-LAST:event_bCalcular1ActionPerformed
 
     private void bCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCalcular2ActionPerformed
         // TODO add your handling code here:
-        int[] numeros = new int[] { 5,8,3,7,9,0,3,2,1,4,6 };
-      int menor = numeros[0];
-      int canum=Foreach.cadenum(menor);
-      for (int x = 1; x < numeros.length; x++) {
-	if (numeros[x] < menor) {
-	menor = numeros[x];
-    }
-    }                                          
-JOptionPane.showMessageDialog(this,"El numero menor del arreglo es "+menor,"Respuesta", JOptionPane.INFORMATION_MESSAGE);
+      int[] numeros = new int[] { 5,8,3,7,9,0,3,2,1,4,6 };
+      int menor = Foreach.calcularMenor(numeros);
+                                             
+      JOptionPane.showMessageDialog(this,"El numero menor del arreglo es "+menor,"Respuesta", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_bCalcular2ActionPerformed
 
 

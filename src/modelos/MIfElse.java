@@ -27,7 +27,13 @@ public class MIfElse {
              return false;
          }
      }
+    public boolean mayorEdad(int edad){
+        return (edad >=21);
+    }
     
+    public boolean validarNotar(float nota){
+        return (nota >= 0 && nota <= 100);
+    }
     
     
 }
